@@ -1,0 +1,776 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #141414;
+  display: inline-block;
+  /* text-transform: uppercase ; */
+  font-size: 1.2rem;
+}
+
+li {
+  list-style: none;
+  /* font-size: 1.5rem; */
+}
+/*================================================ navbar-section ========================================== */
+
+.navbar {
+  width: 100%;
+  /* height: 100px; */
+  padding: 10px 50px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*====== first-section-navbar ======= */
+
+.first-section-navbar {
+  width: 20%;
+  /* height: 100px; */
+  /* cursor: pointer; */
+}
+.first-section-navbar a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.first-section-navbar img {
+  width: 100px;
+  height: 50px;
+  border-radius: 30%;
+}
+.first-section-navbar h3 {
+  font-size: 20px;
+  width: 300px;
+  font-weight: 600;
+}
+
+/* =======middle-section-navbar======== */
+
+.middle-section-navbar {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.navitem {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.list-items {
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.list-items:hover,
+#login__:hover {
+  box-shadow: inset 200px 0 0 0 #54b3d6;
+  color: white;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+/* =======last-section-navbar======== */
+.last-section-navbar {
+  width: 20%;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* cursor: pointer; */
+  /* height: 100%; */
+}
+#login__ {
+  transition: color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+#sign_up-btn {
+  background: rgb(124, 192, 155);
+  border: 0;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 600;
+}
+
+.section1 {
+  width: 100%;
+  height: 500px;
+  background: url(image/bike2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 80px 20px 20px 20px;
+  /* filter: brightness(0.6); */
+}
+
+.section-a {
+  width: 400px;
+  height: 230px;
+  padding: 15px;
+  margin: 20px;
+  background: rgba(98, 180, 218, 0.217);
+  /* rgb(98, 180, 218); */
+  filter: brightness(1);
+  color: #141414;
+  backdrop-filter: blur(10px);
+}
+
+.section-a h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.section-a h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* ========================Search Section======================================================= */
+
+.search-div {
+  background: #0e7f89;
+  width: 70vw;
+  min-height: 200px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  color: #fff;
+  position: relative;
+  top: -5rem;
+  /* left: 6rem; */
+  text-align: start;
+  margin-left: 15vw;
+  border-radius: 2rem;
+  box-shadow: 3px 4px 10px rgb(61, 47, 47);
+
+  div {
+    select,
+    input,
+    button {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      border: none;
+      border-radius: 2rem;
+      box-shadow: 3px 4px 10px rgb(61, 47, 47);
+      margin-left: 0.5rem;
+      background-color: antiquewhite;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #37b895;
+      width: 9rem;
+      cursor: pointer;
+    }
+    span,
+    label {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* =========================================== how-it-work=================================================== */
+
+.how-it-work {
+  width: 100%;
+  min-height: 200px;
+  background: goldenrod;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.Heading {
+  /* width: 300px;
+  height: 45px; */
+  background: rgb(139, 125, 87);
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+}
+.Heading h1 {
+  color: white;
+  font-size: 20px;
+  font-weight: 650;
+  padding: 8px;
+}
+.details {
+  font-size: 30px;
+  font-weight: 600;
+  padding: 20px;
+  /* text-align: center; */
+  color: black;
+}
+
+.rent-step {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+}
+.rent-step-0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.rent-step-1 {
+  background: rgb(228, 228, 121);
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+.rent-step-2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  /* width: 400px;
+  height: 50px; */
+}
+.rent-step-3 {
+  font-size: 15px;
+  font-weight: 600;
+  width: 200px;
+  height: 50px;
+}
+
+/* ===================================why-choose-us==================================== */
+.why-choose-us {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+}
+.left-side {
+  width: 40%;
+  /* background-color: rgb(196, 224, 245); */
+}
+.left-side img {
+  width: 100%;
+  height: 100%;
+  /* mix-blend-mode: darken; */
+}
+.right-side {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+/*=============================================All Vehical section ( Rental deal section) ============================= */
+#rental_deal {
+  scroll-behavior: smooth;
+}
+.car-card-item {
+  display: grid;
+  grid-template-columns: repeat(4, 0.8fr);
+  mix-blend-mode: darken;
+  margin: 4rem;
+}
+.car-card {
+  display: grid;
+  margin: 0.4rem 0.4rem 1rem;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-sizing: border-box;
+}
+.car-card-1 {
+  padding: 10px 10px 0px 10px;
+}
+.car-card-1 img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.car-card-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 30px 20px 30px;
+}
+
+.car-short-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.rent-now-btn {
+  /* width: 300px;
+  height: 40px; */
+  padding: 10px;
+  background: rgb(166, 166, 197);
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  cursor: pointer;
+  border: 0;
+}
+
+#show-all-vehicles {
+  /* width: 300px;
+  height: 45px; */
+  padding: 10px;
+  margin: 20px;
+  background: rgb(166, 166, 197);
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  cursor: pointer;
+  border: 0;
+}
+
+/* =================================================Review section =========================================== */
+#review {
+  /* width: 100%; */
+  /* padding: 40px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.left-review-section {
+  /* width: 45%; */
+  /* height: 100%; */
+  border-radius: 15px;
+  background-color: #582c2c;
+}
+.right-review-section {
+  /* width: 55%; */
+  /* height: 100%; */
+  padding: 20px;
+}
+.right-review-section h1 {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px 10px 5px 10px;
+}
+.right-review-section p {
+  font-size: 20px;
+  font-weight: 350;
+  text-align: start;
+  padding: 40px 10px;
+}
+.right-review-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px 10px 15px 10px;
+}
+.right-review-section h3 {
+  font-size: 17px;
+  padding-left: 10px;
+}
+.previou-btn,
+.next-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 13px;
+}
+
+/* =================================footer Section=============================================================== */
+footer {
+  width: 100%;
+  min-height: 500px;
+  background: url(image/car3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#footer-details {
+  width: 100%;
+  height: 500px;
+  background: transparent;
+  backdrop-filter: blur(3px);
+  color: #fff;
+  padding: 30px;
+  /* display: flex; */
+}
+#left-footer-details {
+  width: 25%;
+  padding: 30px;
+}
+#right-footer-details {
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+  text-align: center;
+}
+
+.left-footer-details-contract {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* width: 150px; */
+  cursor: pointer;
+}
+.lnr {
+  padding: 5px;
+}
+
+.right-footer-details-heading {
+  font-size: 20px;
+  padding: 25px;
+}
+.right-footer-details-ul {
+  gap: 20px;
+}
+.right-footer-details-ul-li {
+  padding: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+#copyright {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+/* ============Login / Sign up section =================== */
+
+.Main-Box {
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(107, 116, 82, 0.7);
+  z-index: 99999;
+  position: fixed;
+  visibility: hidden;
+}
+
+svg {
+  color: #080808;
+  position: relative;
+  top: -18rem;
+  left: 60rem;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.signup-Box {
+  display: none;
+}
+.Login-Box {
+  display: flex;
+}
+
+.Login-Box,
+.signup-Box {
+  font-size: 1rem;
+  min-height: 20rem;
+  background: #bfe9b2;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+  .Login-Box-left,
+  .signup-Box-left {
+    padding: 15px 20px;
+    width: 60%;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    background: #2aa15f;
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.7rem;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      padding: auto;
+    }
+    h2 {
+      margin: 0.7rem;
+    }
+    a {
+      background-color: #54b3d6;
+      padding: 4px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 3rem 1rem 1rem 0.7rem;
+      border: 1px solid rgb(71, 64, 55);
+    }
+  }
+  .Login-Box-right,
+  .signup-Box-right {
+    padding: 9px;
+
+    form div {
+      margin: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+
+      span {
+        color: red;
+        padding-left: 2px;
+      }
+      input {
+        width: 100%;
+        height: 35px;
+        padding: 0 10px;
+        outline: none;
+        border: 1px solid #cccccc;
+        border-radius: 30px;
+        margin-top: 10px;
+      }
+      input:focus {
+        border-color: #ff574e;
+      }
+      button,
+      input[type="submit"] {
+        display: inline-block;
+        width: 100%;
+        margin-top: 5px;
+        color: #08110c;
+        font-size: 16px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #114127;
+        border-radius: 30px;
+        box-shadow: inset 0 0 0 0 #2aa15f;
+        transition: 0.3s;
+      }
+
+      button:hover,
+      input[type="submit"]:hover {
+        color: #080707;
+        box-shadow: inset 250px 0 0 0 #2aa15f;
+      }
+    }
+  }
+}
+/* ============================================Select vehical Booking process===================================================== */
+
+.Bookingsystem-main-Box {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  visibility: visible;
+  padding: 10px;
+  color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  visibility: hidden;
+
+  .ri-close-line {
+    color: #c51a1a;
+    font-size: 2rem;
+    border: 1px solid rgb(240, 244, 245);
+    border-radius: 15px 10px;
+    background-color: #8a80e0;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  .Bookingsystem-Box {
+    width: 80%;
+    background-color: #8da6bb;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 20px;
+    padding: 2rem;
+    position: absolute;
+    top: 50px;
+
+    .details-selected-vehical {
+      height: 100%;
+      width: 60%;
+      padding: 1rem;
+      border-radius: 13px;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      margin-right: 1rem;
+      /* background-color: #87CEEB; */
+
+      h2 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      div {
+        padding: 13px;
+        margin-bottom: 10px;
+
+        border-radius: 10px;
+        box-shadow: rgba(22, 22, 151, 0.55) 0px 13px 27px -5px,
+          rgba(74, 196, 50, 2.3) 0px 8px 16px -8px;
+      }
+      .selected-vehical-image {
+        width: 100%;
+        height: 300px;
+        padding: 0;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+          object-fit: cover;
+        }
+      }
+
+      .vehical-description {
+        p {
+          text-align: justify;
+        }
+      }
+    }
+    .other-details-bookingsystem {
+      width: 40%;
+      height: 100%;
+      padding: 1rem;
+
+      .Book {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+          rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+          rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        padding: 13px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: #13310d;
+
+        span {
+          color: #008000;
+          text-align: end;
+        }
+
+        #Total-Price-section{
+          text-align: center;
+          #Price-calculate{
+            border-top: 4px solid rgb(18, 88, 18);
+            text-align: left;
+            padding: 8px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+          rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+          rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            div{
+              width: 100%;
+              height: 2px;
+              background-color: #0f3e74fb;
+            }
+
+          }
+        }
+
+        #Payment-process {
+          width: 100%;
+          margin: 0.7rem 0rem;
+          padding: 0.6rem;
+          cursor: pointer;
+          font-size: 0.9rem;
+          border-radius: 0.6rem;
+          /* outline: none; */
+          border: none;
+          background-color: #008000;
+          box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+            rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        }
+      }
+
+      .parsonal-details {
+        padding: 13px;
+        margin-top: 0.7rem;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+          rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+          rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+        div {
+          padding: 7px;
+
+          label {
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: #08110c;
+          }
+          input {
+            padding: 10px;
+            width: 100%;
+            background: #fff8dc;
+            outline: none;
+            border-radius: 8px;
+            border: none;
+            margin-top: 3px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: black;
+            box-shadow: rgba(19, 116, 190, 0.979) 0px 1px 2px 0px,
+              rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          }
+          input[name="gender"] {
+            width: 40px;
+            padding: 0px;
+            box-shadow: none;
+          }
+          input[name="driverNeed"] {
+            width: 40px;
+            padding: 0px;
+            box-shadow: none;
+          }
+          input::placeholder {
+            font-size: 0.9rem;
+            padding: 0.6rem;
+            /* color: #81b181; */
+          }
+        }
+        #personal-info-submitBtn {
+          width: 100%;
+          margin: 0.7rem 0rem;
+          padding: 0.6rem;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 0.6rem;
+          /* outline: none; */
+          border: none;
+          background-color: #008000;
+          box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+            rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* a:link,
+a:visited {
+  text-decoration: none;
+  color: #141414;
+  display: inline-block;
+  
+  font-size: 1.2rem;
+}
+
+li {
+  list-style: none;
+  
+} */
+/*======= navbar-section ======= */
+/* body{
+ position:relative;
+} */
+
+.Main-Box {
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  background-color: rgba(107, 116, 82, 0.7);
+  z-index: 99999;
+  position: fixed;
+  visibility: hidden;
+}
+
+svg{
+    color: #080808;
+    position: relative;
+    top: -18rem;
+    left: 60rem;
+    cursor: pointer;
+    border: 2px solid black;
+}
+.signup-Box{
+    display: none;
+}
+.Login-Box{
+    display: flex;
+}
+
+.Login-Box,.signup-Box {
+    
+  font-size: 1rem;
+  min-height: 20rem;
+  background: #bfe9b2;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+  .Login-Box-left ,.signup-Box-left{
+    padding: 15px 20px;
+    width: 60%;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    background: #2aa15f;
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.7rem;
+      word-wrap: break-word;
+      box-sizing: border-box;
+      padding: auto;
+    }
+    h2 {
+      margin: 0.7rem;
+    }
+    a {
+      background-color: #54b3d6;
+      padding: 4px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 3rem 1rem 1rem 0.7rem;
+      border: 1px solid rgb(71, 64, 55);
+    }
+  }
+  .Login-Box-right,.signup-Box-right {
+    padding: 9px;
+
+    form div {
+      margin: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+
+      span {
+        color: red;
+        padding-left: 2px;
+      }
+      input {
+        width: 100%;
+        height: 35px;
+        padding: 0 10px;
+        outline: none;
+        border: 1px solid #cccccc;
+        border-radius: 30px;
+        margin-top: 10px;
+      }
+      input:focus {
+        border-color: #ff574e;
+      }
+      button,
+      input[type="submit"] {
+        display: inline-block;
+        width: 100%;
+        margin-top: 5px;
+        color: #08110c;
+        font-size: 16px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #114127;
+        border-radius: 30px;
+        box-shadow: inset 0 0 0 0 #2aa15f;
+        transition: 0.3s;
+      }
+
+      button:hover,
+      input[type="submit"]:hover {
+        color: #080707;
+        box-shadow: inset 250px 0 0 0 #2aa15f;
+      }
+    }
+  }
+}

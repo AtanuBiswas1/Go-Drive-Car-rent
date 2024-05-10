@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Drive</title>
+    <!-- <link rel="icon" href="image/icon.jpg" type="image/icon type" /> -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    /> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <!------------------------- Login Popup section---------------------------------->
+    <main class="Main-Box">
+      <div id="login-close-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="40"
+          height="40"
+          fill="currentColor"
+        >
+          <path
+            d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="Login-Box">
+        <div class="Login-Box-left">
+          <h2>Welcome!</h2>
+          <p>Create your account.<br />For Free!</p>
+          <a href="" class="Signupbtn">Sign Up</a>
+        </div>
+        <div class="Login-Box-right">
+          <h1>Sign in</h1>
+          <form action="">
+            <div>
+              <label>Username/Email address<span>*</span></label>
+              <input type="text" placeholder="Username or Email" required />
+            </div>
+            <div>
+              <label>Password<span>*</span></label
+              ><br />
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div>
+              <input type="submit" value="Sign In" />
+            </div>
+            <div>
+              <a href="">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="signup-Box">
+        <div class="signup-Box-left">
+          <h2>Come Join us!</h2>
+          <p>We are so excited to have you here.</p>
+          <p>If you haven't already, <br />create an account.</p>
+          <h4>Already have an account?</h4>
+          <a href="" class="Loginbtn"> Signin</a>
+        </div>
+        <div class="signup-Box-right">
+          <h1>Sign up</h1>
+          <form action="">
+            <div>
+              <label>Full Name<span>*</span></label>
+              <input type="text" placeholder="Enter Name" required />
+            </div>
+            <div>
+              <label>Email <span>*</span></label>
+              <input type="text" placeholder="Enter Email" required />
+            </div>
+            <div>
+              <label>Phone no <span>*</span></label>
+              <input type="number" placeholder="Enter Phone no" required />
+            </div>
+            <div>
+              <label>Password<span>*</span></label
+              ><br />
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div>
+              <label>Confirm Password<span>*</span></label
+              ><br />
+              <input
+                type="password"
+                placeholder="Enter Confirm Password"
+                required
+              />
+            </div>
+            <div>
+              <input type="submit" value="Sign Up" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!------------------------------Select vehical Booking process--------------------------------->
+    <section class="Bookingsystem-main-Box">
+      
+    </section>
+
+    <!------------------------- navbar Section  ---------------------------------->
+    <nav class="navbar" style="background-color: burlywood">
+      <div class="first-section-navbar">
+        <a href=""
+          ><img src="image/icon.jpg" alt="" />
+          <h3>Go Drive</h3>
+        </a>
+      </div>
+      <div class="middle-section-navbar">
+        <ul class="navitem">
+          <a href=""><li class="list-items">Become a rentar</li></a>
+          <a href="#rental_deal"><li class="list-items">Rental deal</li></a>
+          <a href="#how-it-work"><li class="list-items">How it work</li></a>
+          <a href="#why-choose-us"><li class="list-items">Why choose us</li></a>
+        </ul>
+      </div>
+      <div class="last-section-navbar">
+        <!-- <a href="login/login.html" id="login__">Login</a> -->
+        <button id="sign_up-btn">Login/sign Up</button>
+      </div>
+    </nav>
+
+    <!------------------------- template image section ---------------------------------->
+    <section class="section1">
+      <div class="section-a">
+        <h1>Find, book and rent car / bike Easily</h1>
+        <h2>Get a car wherever and whenever you need it</h2>
+      </div>
+    </section>
+
+    <!------------------------- searching section ---------------------------------->
+    <div class="search-div">
+      <div class="selection-car-bike">
+        <label for="bike-car">Select Vehicle</label>
+        <select name="Vehicle" id="Vehicle">
+          <option value="Select">Select</option>
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+        </select>
+      </div>
+
+      <div class="pick-up">
+        <span class="lnr lnr-map-marker"></span>
+        <label for="pick_up">Location</label>
+        <select id="pic-up">
+          <option value="">Select</option>
+          <option value="Medinipore">Medinipore</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Darjeeling">Darjeeling</option>
+          <option value="Howrah">Howrah</option>
+          <option value="Murshidabad">Murshidabad</option>
+        </select>
+      </div>
+      <!-- <div class="Drop-of">
+        <span class="lnr lnr-map-marker"></span>
+        <label for="drop_of">Drop-of</label>
+        <select class="pic-up">
+          <option value="Medinipore">Medinipore</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Darjeeling">Darjeeling</option>
+          <option value="Howrah">Howrah</option>
+          <option value="Murshidabad">Murshidabad</option>
+        </select>
+      </div> -->
+      <div class="pick-up-date">
+        <span class="lnr lnr-calendar-full"></span>
+        <label for="pick-up-date">Pickup Date</label>
+        <input type="datetime-local" id="picupdate" required />
+      </div>
+
+      <div class="drop-of-date">
+        <span class="lnr lnr-calendar-full"></span>
+        <label for="drop-of-date">Dropoff Date</label>
+        <input type="datetime-local" id="dropofdate" required />
+      </div>
+      <div class="find">
+        <a href="#rental_deal">
+          <button id="search-btn" onclick="searchCars()">
+            <span class="lnr lnr-magnifier"></span>Search
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!------------------------- how-it-work section ---------------------------------->
+    <section class="how-it-work" id="how-it-work">
+      <div class="Heading"><h1>HOW IT WORK</h1></div>
+      <h1 class="details">Rent with following 3 working steps</h1>
+      <div class="rent-step">
+        <div class="rent-step-0">
+          <div class="rent-step-1">
+            <span class="lnr lnr-map-marker"></span>
+          </div>
+          <h1 class="rent-step-2">Choose location</h1>
+          <h2 class="rent-step-3">choose your and find your best vehicle</h2>
+        </div>
+        <div class="rent-step-0">
+          <div class="rent-step-1">
+            <span class="lnr lnr-calendar-full"></span>
+          </div>
+          <h1 class="rent-step-2">Pick-up date</h1>
+          <h2 class="rent-step-3">
+            Select your pick up date and time to book your car
+          </h2>
+        </div>
+        <div class="rent-step-0">
+          <div class="rent-step-1">
+            <span class="lnr lnr-car"></span>
+          </div>
+          <h1 class="rent-step-2">Book your vehicle</h1>
+          <h2 class="rent-step-3">
+            Book your vehicle and we will deliver it directly to you
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!----------------------------------- why-choose-us section  --------------------------------->
+    <section class="why-choose-us" id="why-choose-us">
+      <div class="left-side">
+        <img src="image/car @.jpg" alt="" />
+      </div>
+      <div class="right-side">
+        <div class="Heading">
+          <h1>WHY CHOOSE US</h1>
+        </div>
+        <h1 class="details">
+          We offer the best experience with our rental deals
+        </h1>
+        <div>
+          <div style="display: flex; gap: 20px; padding: 10px">
+            <div class="rent-step-1">
+              <span class="lnr lnr-magic-wand"></span>
+            </div>
+            <div>
+              <h1 class="rent-step-2" style="padding: 0; height: 30px">
+                Best price guaranteed
+              </h1>
+              <h2 style="font-size: 15px; font-weight: 600">
+                Find a lower price? we'll refund you 100% of the difference.
+              </h2>
+            </div>
+          </div>
+          <div style="display: flex; gap: 20px; padding: 10px">
+            <div class="rent-step-1">
+              <span class="lnr lnr-user"></span>
+            </div>
+            <div>
+              <h1 class="rent-step-2" style="padding: 0; height: 30px">
+                Experience driver
+              </h1>
+              <h2 style="font-size: 15px; font-weight: 600">
+                Don't have driver?Don't worry,we have many experienced driver
+                for you.
+              </h2>
+            </div>
+          </div>
+          <div style="display: flex; gap: 20px; padding: 10px">
+            <div class="rent-step-1">
+              <span class="lnr lnr-calendar-full"></span>
+            </div>
+            <div>
+              <h1 class="rent-step-2" style="padding: 0; height: 30px">
+                24 hour car delivery
+              </h1>
+              <h2 style="font-size: 15px; font-weight: 600">
+                Book your car anytime and we will deliver it directly to you.
+              </h2>
+            </div>
+          </div>
+          <div style="display: flex; gap: 20px; padding: 10px">
+            <div class="rent-step-1">
+              <span class="lnr lnr-bubble"></span>
+            </div>
+            <div>
+              <h1 class="rent-step-2" style="padding: 0; height: 30px">
+                24/7 technical support
+              </h1>
+              <h2 style="font-size: 15px; font-weight: 600">
+                Have a question? Contact Rentcars support any time when you have
+                problem.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-------------------- Rental deal section ( All vehical display)  ---------------------------->
+    <section
+      id="rental_deal"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        background: rgb(198, 198, 184);
+      "
+    >
+      <div class="Heading">
+        <h1>POPULAR RENTAL DEALS</h1>
+      </div>
+      <h1 class="details">Most popular cars rental deals</h1>
+      <div id="vehicalSection">
+        <div class="car-card-item"></div>
+      </div>
+    </section>
+
+    <!---------------------------------review section  --------------------------------------->
+    <section id="review">
+      <div class="Heading">
+        <h1>TESTIMONIALS</h1>
+      </div>
+      <h1 class="details">What people say about us?</h1>
+      <div
+        style="
+          display: flex;
+          width: 100%;
+          min-height: 20px;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img src="image/back.png" alt="" class="previou-btn" />
+        <div
+          style="
+            width: 60%;
+            margin: 20px;
+            /* min-height: 20px; */
+            display: flex;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+              rgba(0, 0, 0, 0.22) 0px 10px 10px;
+          "
+        >
+          <div class="left-review-section">
+            <img
+              src="image/bike3.jpg"
+              alt=""
+              style="border-radius: 15px; width: 100%; height: 100%"
+            />
+          </div>
+          <div class="right-review-section">
+            <h1>5.0 <span style="font-size: 30px">Stars</span></h1>
+            <div style="padding: 2px 10px">
+              <span class="lnr lnr-star"></span>
+              <span class="lnr lnr-star"></span>
+              <span class="lnr lnr-star"></span>
+              <span class="lnr lnr-star"></span>
+              <span class="lnr lnr-star"></span>
+            </div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
+              ipsa minima nemo iste exercitationem quibusdam soluta debitis
+              excepturi ullam deserunt quae necessitatibus placeat, quisquam
+              dolore expedita quod vel maxime minus?
+            </p>
+            <h2>Ms. Some people</h2>
+            <h3>From West Bengal, India</h3>
+          </div>
+        </div>
+        <img src="image/forward.png" alt="" class="next-btn" />
+      </div>
+    </section>
+
+    <!--------------------------------- footer section  ----------------------------------------------->
+    <footer>
+      <div id="footer-details">
+        <div style="display: flex">
+          <div id="left-footer-details">
+            <div class="first-section-navbar" style="margin-left: 60px">
+              <a href=""
+                ><img src="image/icon.jpg" alt="" />
+                <h3>Go Drive</h3>
+              </a>
+            </div>
+            <div id="location" class="left-footer-details-contract">
+              <span class="lnr lnr-map-marker"></span>
+              <p>Medinipore,West Bengal,pin-721101,India</p>
+            </div>
+            <div id="phone" class="left-footer-details-contract">
+              <span class="lnr lnr-phone-handset"></span>
+              <p>+919847290189</p>
+            </div>
+            <div id="mail" class="left-footer-details-contract">
+              <span class="lnr lnr-envelope"></span>
+              <p>
+                <a href="mailto:atanubiswas671@gmail.com" style="color: #fff"
+                  >atanubiswas671@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <div id="right-footer-details">
+            <div>
+              <h1 class="right-footer-details-heading">Our Product</h1>
+              <ul class="right-footer-details-ul">
+                <li class="right-footer-details-ul-li">Career</li>
+                <li class="right-footer-details-ul-li">Car</li>
+                <li class="right-footer-details-ul-li">Packages</li>
+                <li class="right-footer-details-ul-li">Features</li>
+                <li class="right-footer-details-ul-li">Piceline</li>
+              </ul>
+            </div>
+            <div>
+              <h1 class="right-footer-details-heading">Resources</h1>
+              <ul class="right-footer-details-ul">
+                <li class="right-footer-details-ul-li">Download</li>
+                <li class="right-footer-details-ul-li">Help Centre</li>
+                <li class="right-footer-details-ul-li">Guides</li>
+                <li class="right-footer-details-ul-li">Partner Network</li>
+                <li class="right-footer-details-ul-li">Developer</li>
+              </ul>
+            </div>
+            <div>
+              <h1 class="right-footer-details-heading">About Rentcars</h1>
+              <ul class="right-footer-details-ul">
+                <li class="right-footer-details-ul-li">Why choose us</li>
+                <li class="right-footer-details-ul-li">Our story</li>
+                <li class="right-footer-details-ul-li">Press Centre</li>
+                <li class="right-footer-details-ul-li">Advertise</li>
+              </ul>
+            </div>
+            <div>
+              <h1 class="right-footer-details-heading">Follow Us</h1>
+            </div>
+          </div>
+        </div>
+        <div style="width: 100%; height: 2px; background-color: #fff"></div>
+        <div id="copyright">
+          &copy; copyright 2024 . Go Drive . Atanu Biswas
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

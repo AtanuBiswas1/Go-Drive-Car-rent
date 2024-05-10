@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <label for="pickup-datetime">Pick-up Date and Time:</label>
+<input type="datetime-local" id="pickup-datetime" name="pickup-datetime">
+
+<label for="dropoff-datetime">Drop-off Date and Time:</label>
+<input type="datetime-local" id="dropoff-datetime" name="dropoff-datetime">
+
+<button onclick="calculateCharges()">Calculate Charges</button>
+
+<label for="pickup-date">Pick-up Date:</label>
+<input type="date" id="pickup-date" name="pickup-date">
+
+<label for="dropoff-date">Drop-off Date:</label>
+<input type="date" id="dropoff-date" name="dropoff-date">
+
+
+<p id="total-charge">Total Charge: $0</p>
+
+</body>
+</html>
