@@ -220,52 +220,18 @@ function Vehicals(item) {
   `;
   vehical_list.append(vehical_item);
 }
-
 AllVehicals.forEach((item) => {
   Vehicals(item);
 });
 
-//=================search vehicals=======================
-const BookingPopup = document.querySelector(".Bookingsystem-main-Box");
-function searchCars() {
-  const location = document.getElementById("pic-up").value;
-  const Vehical = document.getElementById("Vehicle").value;
-  const pickupDate = document.getElementById("picupdate").value;
-  const dropoffDate = document.getElementById("dropofdate").value;
-  // console.log((new Date (dropoffDate).getTime()-new Date(pickupDate).getTime() ) /3600000);
-  // console.log(new Date (dropoffDate));
-  // console.log(new Date(dropoffDate).getTime()-new Date(pickupDate).getTime());
-  // console.log((new Date(dropoffDate).getTime()-new Date(pickupDate).getTime())/3600000);
-  const results = AllVehicals.filter(
-    (_item) =>
-      _item.type.toLowerCase() === Vehical.toLowerCase() &&
-      _item.location.toLowerCase() === location.toLowerCase() &&
-      new Date(_item.availableDates[0]) <= new Date(pickupDate) &&
-      new Date(_item.availableDates[1]) >= new Date(dropoffDate)
-  );
-
-  vehical_list.innerHTML = "";
-  if (results.length === 0) {
-    const vehicalSection = document.getElementById("vehicalSection");
-    vehicalSection.innerHTML = "<li>No cars available for your dates.</li>";
-  } else {
-    results.forEach((item) => {
-      vehicalSection.innerHTML = "";
-      vehicalSection.append(vehical_list);
-      Vehicals(item);
-    });
-  }
-}
-
-// ======================== Describe vehical details and rent ============================
-
+// ========================Create section of  Describe vehical details and rent ============================
 function BookingSystem(item) {
   BookingPopup.innerHTML = `
   <div onclick=CloseBooking()><i class="ri-close-line close-booking-popup" ></i></div>
   <section class="Bookingsystem-Box">
     <div class="details-selected-vehical">
       <div class="selected-vehical-image">
-        <img src="${item.src}" alt="" />
+        <img src="image/car1.jpg" alt="Abc" />
       </div>
       <div class="vehical-details">
         <h2>Vehical:</h2>
@@ -360,6 +326,42 @@ function BookingSystem(item) {
   `;
 }
 
+//=================search vehicals=======================
+const BookingPopup = document.querySelector(".Bookingsystem-main-Box");
+function searchCars() {
+  const location = document.getElementById("pic-up").value;
+  const Vehical = document.getElementById("Vehicle").value;
+  const pickupDate = document.getElementById("picupdate").value;
+  const dropoffDate = document.getElementById("dropofdate").value;
+  // console.log((new Date (dropoffDate).getTime()-new Date(pickupDate).getTime() ) /3600000);
+  // console.log(new Date (dropoffDate));
+  // console.log(new Date(dropoffDate).getTime()-new Date(pickupDate).getTime());
+  // console.log((new Date(dropoffDate).getTime()-new Date(pickupDate).getTime())/3600000);
+  const results = AllVehicals.filter(
+    (_item) =>
+      _item.type.toLowerCase() === Vehical.toLowerCase() &&
+      _item.location.toLowerCase() === location.toLowerCase() &&
+      new Date(_item.availableDates[0]) <= new Date(pickupDate) &&
+      new Date(_item.availableDates[1]) >= new Date(dropoffDate)
+  );
+
+  vehical_list.innerHTML = "";
+  if (results.length === 0) {
+    const vehicalSection = document.getElementById("vehicalSection");
+    vehicalSection.innerHTML = "<li>No cars available for your dates.</li>";
+  } else {
+    results.forEach((item) => {
+      vehicalSection.innerHTML = "";
+      vehicalSection.append(vehical_list);
+      Vehicals(item);
+    });
+  }
+}
+
+// ======================== Describe vehical details and rent ============================
+
+
+
 
 
 // const CloseBookingPopup = document.querySelector(".close-booking-popup");
@@ -368,11 +370,12 @@ function BookingSystem(item) {
 //   BookingPopup.style.visibility="hidden"
 // })
 const RentNowBtn=document.querySelectorAll(".rent-now-btn")
-console.log(RentNowBtn)
+
 RentNowBtn.forEach((item)=>{
- item.addEventListener("click",()=>{
+ item.addEventListener("click",(item)=>{
   BookingPopup.style.visibility="visible" 
   BookingSystem(item)
+  console.log(item.target)
  })
  
 })
