@@ -127,6 +127,8 @@ const AllVehicals = [
   },
 ];
 
+const confirmationpopup = document.querySelector(".confirmation-popup");
+
 //========================Login Section ======================
 
 const SigninBtn = document.getElementsByClassName("Loginbtn")[0];
@@ -211,7 +213,7 @@ function Vehicals(item) {
         <span style="font-size: 15px; font-weight: 400">/hour</span>
       </h1>
     </div>
-    <button class="rent-now-btn">
+    <button class="rent-now-btn" onclick="detailscarshow(${item.id})">
       Rent Now
       <span class="lnr lnr-arrow-right" style="color: black"></span>
     </button>
@@ -224,36 +226,70 @@ AllVehicals.forEach((item) => {
   Vehicals(item);
 });
 
+//=================search vehicals=======================
+const BookingPopup = document.querySelector(".Bookingsystem-main-Box");
+let locationCar;
+let Vehical;
+let pickupDate;
+let dropoffDate;
+
+function searchCars() {
+  locationCar = document.getElementById("pic-up").value;
+  Vehical = document.getElementById("Vehicle").value;
+  pickupDate = document.getElementById("picupdate").value;
+  dropoffDate = document.getElementById("dropofdate").value;
+
+  console.log(pickupDate);
+  console.log(dropoffDate);
+  const results = AllVehicals.filter(
+    (_item) =>
+      _item.type.toLowerCase() === Vehical.toLowerCase() &&
+      _item.location.toLowerCase() === locationCar.toLowerCase() &&
+      new Date(_item.availableDates[0]) <= new Date(pickupDate) &&
+      new Date(_item.availableDates[1]) >= new Date(dropoffDate)
+  );
+
+  vehical_list.innerHTML = "";
+  if (results.length === 0) {
+    const vehicalSection = document.getElementById("vehicalSection");
+    vehicalSection.innerHTML = "<li>No cars available for your dates.</li>";
+  } else {
+    results.forEach((item) => {
+      vehicalSection.innerHTML = "";
+      vehicalSection.append(vehical_list);
+      Vehicals(item);
+    });
+  }
+}
+
+// / ${new Date(pickupDate).getMonth()} / ${new Date(pickupDate).getFullYear()} and Time:${new Date(pickupDate).getTime()}
+
 // ========================Create section of  Describe vehical details and rent ============================
-function BookingSystem(item) {
+function BookingSystem(car, pickupDate, dropoffDate) {
   BookingPopup.innerHTML = `
   <div onclick=CloseBooking()><i class="ri-close-line close-booking-popup" ></i></div>
   <section class="Bookingsystem-Box">
     <div class="details-selected-vehical">
       <div class="selected-vehical-image">
-        <img src="image/car1.jpg" alt="Abc" />
+        <img src="${car.imageUrl}" alt="Abc" />
       </div>
       <div class="vehical-details">
-        <h2>Vehical:</h2>
-        <h2>Name:</h2>
-        <h2>Location:</h2>
-        <h2>Picup Date-Time:</h2>
-        <h2>Dropoff Date-Time:</h2>
+        <h2>Vehical:${car.type}</h2>
+        <h2>Name:${car.model}</h2>
+        <h2>Location:${car.location}</h2>
+        <h2>Picup Date: ${new Date(pickupDate).getDate()}</h2>
+        
+        <h2>Dropoff Date: ${new Date(
+          dropoffDate
+        ).getDate()} and Time:${new Date(dropoffDate).getTime()}</h2>
       </div>
       <div class="vehical-description">
         <p>
-          Incidunt molestiae exercitationem inventore sunt recusandae?
-          Consequatur atque nobis ab, sunt velit itaque et officiis dolores
-          laudantium voluptas neque totam est voluptates eligendi natus
-          impedit at aliquam consequuntur porro dolor ipsam sapiente aperiam
-          quia. Praesentium a deleniti inventore similique sunt ab tempora
-          magnam in itaque aperiam ea culpa temporibus, possimus dicta aut
-          quod ut iusto neque tenetur officiis nihil doloremque maxime nam
-          mollitia? Sit magni soluta voluptatibus.
+          ${car.description}
         </p>
       </div>
       <div class="vehical-review">
-        <h2>Review: 4.5</h2>
+        <h2>Review:${car.raiting}<i class="ri-star-line"></i></h2>
       </div>
     </div>
     <div class="other-details-bookingsystem">
@@ -319,67 +355,81 @@ function BookingSystem(item) {
         </div>
 
         <div><label for="">Extra Price for Driver:$2/hour</label></div>
-        <input type="submit" value="Submit" id="personal-info-submitBtn" />
+        <input type="submit" value="Submit" id="personal-info-SubmitBtn" />
       </form>
     </div>
   </section>
   `;
-}
-
-//=================search vehicals=======================
-const BookingPopup = document.querySelector(".Bookingsystem-main-Box");
-function searchCars() {
-  const location = document.getElementById("pic-up").value;
-  const Vehical = document.getElementById("Vehicle").value;
-  const pickupDate = document.getElementById("picupdate").value;
-  const dropoffDate = document.getElementById("dropofdate").value;
-  // console.log((new Date (dropoffDate).getTime()-new Date(pickupDate).getTime() ) /3600000);
-  // console.log(new Date (dropoffDate));
-  // console.log(new Date(dropoffDate).getTime()-new Date(pickupDate).getTime());
-  // console.log((new Date(dropoffDate).getTime()-new Date(pickupDate).getTime())/3600000);
-  const results = AllVehicals.filter(
-    (_item) =>
-      _item.type.toLowerCase() === Vehical.toLowerCase() &&
-      _item.location.toLowerCase() === location.toLowerCase() &&
-      new Date(_item.availableDates[0]) <= new Date(pickupDate) &&
-      new Date(_item.availableDates[1]) >= new Date(dropoffDate)
-  );
-
-  vehical_list.innerHTML = "";
-  if (results.length === 0) {
-    const vehicalSection = document.getElementById("vehicalSection");
-    vehicalSection.innerHTML = "<li>No cars available for your dates.</li>";
-  } else {
-    results.forEach((item) => {
-      vehicalSection.innerHTML = "";
-      vehicalSection.append(vehical_list);
-      Vehicals(item);
-    });
-  }
+  
+  document.getElementById("personal-info-SubmitBtn").addEventListener("click",(e)=>{
+  e.preventDefault()
+})
 }
 
 // ======================== Describe vehical details and rent ============================
+function detailscarshow(Id) {
+  if (
+    locationCar === undefined &&
+    Vehical === undefined &&
+    pickupDate === undefined &&
+    dropoffDate === undefined
+  ) {
+    confirmationpopup.innerHTML = `
+   <div style="width:340px; background: #fff; position:absolute;top:20%;
+   left: 40%;">
+    <p id="confirm-para-first">Please select vehical and Location and Time</p>
+     
+      <button id="confirmation-btn">ok</button>
+   </div>
+  `;
+    confirmationpopup.style.visibility = "visible";
+    document
+      .querySelector("#confirmation-btn")
+      .addEventListener("click", () => {
+        confirmationpopup.style.visibility = "hidden";
+      });
+  } else {
+    if (Id) {
+      const selectedCar = AllVehicals.find((car) => car.id === Id);
 
+      BookingPopup.style.visibility = "visible";
+      console.log(locationCar);
+      BookingSystem(selectedCar, pickupDate, dropoffDate);
+    }
+  }
 
-
-
-
-// const CloseBookingPopup = document.querySelector(".close-booking-popup");
-
-// CloseBookingPopup.addEventListener("click",()=>{
-//   BookingPopup.style.visibility="hidden"
-// })
-const RentNowBtn=document.querySelectorAll(".rent-now-btn")
-
-RentNowBtn.forEach((item)=>{
- item.addEventListener("click",(item)=>{
-  BookingPopup.style.visibility="visible" 
-  BookingSystem(item)
-  console.log(item.target)
- })
- 
-})
-
-function CloseBooking(){
-  BookingPopup.style.visibility="hidden"
+  // console.log(I
 }
+
+function CloseBooking() {
+  BookingPopup.style.visibility = "hidden";
+}
+
+//===================Confirmation popup for Login/signup / Booking =================
+const SignupSubmitBtn = document.querySelector("#Signup-submit-btn");
+
+SignupSubmitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  confirmationpopup.innerHTML = `
+  <div style="width:340px; background: #fff; position:absolute;top:20%;
+   left: 40%;">
+    <p id="confirm-para-first">Thanks! your account has been successfully created.</p>
+     <p>
+       Please check your inbox, a code is sent on your email as well as on
+       your registered phone no. which will be required when you will reach
+       to the venue and to login your account .
+      </p>
+      <button id="confirmation-btn">ok</button>
+   </div>
+  `;
+
+  confirmationpopup.style.visibility = "visible";
+
+  document.querySelector("#confirmation-btn").addEventListener("click", () => {
+    confirmationpopup.style.visibility = "hidden";
+  });
+});
+
+//=================if select any vehival without location or time then show popup like that======================
+
+//Next day popup , reloading, signup, signin btn reloading , details car booking
