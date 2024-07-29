@@ -127,6 +127,58 @@ const AllVehicals = [
   },
 ];
 
+const customerReviews = [
+  {
+    star: 4.2,
+    image: "image/car1.jpg",
+    text: "Lorem ipsum dolor sit amet.",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.1,
+    image: "image/car1.jpg",
+    text: "Lorem, ipsum dolor.",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.6,
+    image: "image/car1.jpg",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, magni.",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.2,
+    image: "image/car1.jpg",
+    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae dolorum voluptates, enim odit ipsum placeat doloribus cumque quidem voluptas quo!",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.1,
+    image: "image/car1.jpg",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, asperiores distinctio eos aspernatur illum voluptates alias corporis velit eum excepturi!",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.6,
+    image: "image/car1.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At reprehenderit deleniti et. Labore autem unde nesciunt.",
+    userName: "someone",
+    Adress: "india some city",
+  },
+  {
+    star: 4.4,
+    image: "image/car1.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus amet corrupti consectetur.",
+    userName: "someone",
+    Adress: "india some city",
+  },
+];
+
 const confirmationpopup = document.querySelector(".confirmation-popup");
 
 //========================Login Section ======================
@@ -164,11 +216,12 @@ const vehical_list = document.querySelector(".car-card-item");
 function Vehicals(item) {
   const vehical_item = document.createElement("div");
   vehical_item.classList.add("car-card");
+  vehical_item.setAttribute("data-aos","zoom-in-up")
 
   vehical_item.innerHTML = `
   
         <div class="car-card-1">
-        <img src="${item.imageUrl}" alt="" /> 
+        <img src="${item.imageUrl}" alt="" data-aos="flip-down"/> 
         </div>
         <div class="car-card-2">
           <h1 style="font-size: 20px; font-weight: bold; width: 100%">
@@ -213,7 +266,7 @@ function Vehicals(item) {
         <span style="font-size: 15px; font-weight: 400">/hour</span>
       </h1>
     </div>
-    <button class="rent-now-btn" onclick="detailscarshow(${item.id})">
+    <button class="rent-now-btn" onclick="detailscarshow(${item.id},${item.price})">
       Rent Now
       <span class="lnr lnr-arrow-right" style="color: black"></span>
     </button>
@@ -221,7 +274,9 @@ function Vehicals(item) {
 
   `;
   vehical_list.append(vehical_item);
+  
 }
+
 AllVehicals.forEach((item) => {
   Vehicals(item);
 });
@@ -232,15 +287,16 @@ let locationCar;
 let Vehical;
 let pickupDate;
 let dropoffDate;
+let totalTimeForRentcar;
 
 function searchCars() {
   locationCar = document.getElementById("pic-up").value;
   Vehical = document.getElementById("Vehicle").value;
   pickupDate = document.getElementById("picupdate").value;
   dropoffDate = document.getElementById("dropofdate").value;
+  totalTimeForRentcar =
+    (new Date(dropoffDate) - new Date(pickupDate)) / 3600000;
 
-  console.log(pickupDate);
-  console.log(dropoffDate);
   const results = AllVehicals.filter(
     (_item) =>
       _item.type.toLowerCase() === Vehical.toLowerCase() &&
@@ -262,10 +318,8 @@ function searchCars() {
   }
 }
 
-// / ${new Date(pickupDate).getMonth()} / ${new Date(pickupDate).getFullYear()} and Time:${new Date(pickupDate).getTime()}
-
 // ========================Create section of  Describe vehical details and rent ============================
-function BookingSystem(car, pickupDate, dropoffDate) {
+function BookingSystem(car, pickupDate, dropoffDate, time) {
   BookingPopup.innerHTML = `
   <div onclick=CloseBooking()><i class="ri-close-line close-booking-popup" ></i></div>
   <section class="Bookingsystem-Box">
@@ -294,16 +348,20 @@ function BookingSystem(car, pickupDate, dropoffDate) {
     </div>
     <div class="other-details-bookingsystem">
       <div class="Book">
-        <h1>Total Time: <span>2 hours</span></h1>
+        <h1>Total Time: <span>$ ${time} hours</span></h1>
         <div id="Total-Price-section">
           <h1>Total Price</h1>
           <div id="Price-calculate">
-            <h1>Basic :<span>$200</span></h1>
-            <h1>Cost for Driver : <span> $2</span></h1>
-            <h1>Sub Total : <span>$202</span></h1>
-            <h1>Taxes : <span>$24.24</span> <span>12% GST</span></h1>
+            <h1>Basic :<span>$${(carPrice = time * car.price)}</span></h1>
+            <h1>Cost for Driver : <span>$ ${(driverRent = time * 2)}</span></h1>
+            
+            <h1>Sub Total : <span>$ ${(subPrice =
+              carPrice + driverRent)}</span></h1>
+            <h1>Taxes : <span>$ ${(gst =
+              subPrice *
+              0.12)}</span> <span style="color:black">12% GST</span></h1>
             <div></div>
-            <h1>Total: <span>$226.24</span></h1>
+            <h1>Total: <span>$ ${subPrice + gst}</span></h1>
           </div>
           
         </div>
@@ -360,10 +418,12 @@ function BookingSystem(car, pickupDate, dropoffDate) {
     </div>
   </section>
   `;
-  
-  document.getElementById("personal-info-SubmitBtn").addEventListener("click",(e)=>{
-  e.preventDefault()
-})
+
+  document
+    .getElementById("personal-info-SubmitBtn")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+    });
 }
 
 // ======================== Describe vehical details and rent ============================
@@ -378,7 +438,7 @@ function detailscarshow(Id) {
    <div style="width:340px; background: #fff; position:absolute;top:20%;
    left: 40%;">
     <p id="confirm-para-first">Please select vehical and Location and Time</p>
-     
+
       <button id="confirmation-btn">ok</button>
    </div>
   `;
@@ -393,12 +453,10 @@ function detailscarshow(Id) {
       const selectedCar = AllVehicals.find((car) => car.id === Id);
 
       BookingPopup.style.visibility = "visible";
-      console.log(locationCar);
-      BookingSystem(selectedCar, pickupDate, dropoffDate);
+      //console.log(locationCar);
+      BookingSystem(selectedCar, pickupDate, dropoffDate, totalTimeForRentcar);
     }
   }
-
-  // console.log(I
 }
 
 function CloseBooking() {
@@ -430,6 +488,83 @@ SignupSubmitBtn.addEventListener("click", (e) => {
   });
 });
 
-//=================if select any vehival without location or time then show popup like that======================
+//=========================customerReviews=============================
 
-//Next day popup , reloading, signup, signin btn reloading , details car booking
+function customerReview(Alldata) {
+  const customerReviewSection = document.querySelector("#review");
+  let i = 0;
+
+  if (Alldata) {
+    const reviewCard = document.createElement("div");
+    function reviewCardshow(data) {
+      reviewCard.innerHTML = `
+      <div
+      style="
+        display: flex;
+        width: 100%;
+        min-height: 20px;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <button id="backwordArrow" style="border:2px solid black;"><i class="ri-arrow-left-s-line"></i></button>
+      <div
+        style="
+          width: 60%;
+          margin: 20px;
+          /* min-height: 20px; */
+          display: flex;
+          border-radius: 15px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+            rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        "
+      >
+        <div class="left-review-section" style="width:40%">
+          <img
+            data-aos="flip-down"
+            src="${data.image}"
+            alt=""
+            style="border-radius: 15px; width: 100%; height: 100%"
+          />
+        </div>
+        <div class="right-review-section">
+          <h1>
+            ${data.star}
+            <span style="font-size: 30px; color: gold"
+              ><i class="ri-star-line"></i
+            ></span>
+          </h1>
+
+          <p>
+            ${data.text}
+          </p>
+          <h2>${data.userName}</h2>
+          <h3>From ${data.Adress}</h3>
+        </div>
+      </div>
+      <button id="forworddArrow " style="border:2px solid black;  "><i class="ri-arrow-right-s-line" ></i></i></button>
+      
+    </div>
+
+      `;
+      i++;
+    }
+    reviewCardshow(Alldata[i]);
+    customerReviewSection.append(reviewCard);
+  }
+
+  const backwardArrow = document.querySelector("#backwordArrow");
+  const forwardArrow = document.querySelector("#forworddArrow");
+  console.log(backwardArrow);
+  console.log(forwardArrow);
+  console.log(i);
+  if (i <= 0) {
+    console.log(i);
+    backwardArrow.ariaDisabled = true;
+  }
+  // if (i > 0) {
+  //   backwardArrow.addEventListener("click", () => {});
+  // }
+}
+
+customerReview(customerReviews);

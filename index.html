@@ -19,12 +19,13 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="index.js" defer></script>
   </head>
   <body>
     <!------------------------- Login Popup section---------------------------------->
-    <main class="Main-Box" >
+    <main class="Main-Box">
       <div id="login-close-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@
               <input type="password" placeholder="Password" required />
             </div>
             <div>
-              <input type="submit" value="Sign In" id="Signin-submit-btn"/>
+              <input type="submit" value="Sign In" id="Signin-submit-btn" />
             </div>
             <div>
               <a href="">Forgot password?</a>
@@ -104,7 +105,7 @@
               />
             </div>
             <div>
-              <input type="submit" value="Sign Up" id="Signup-submit-btn"/>
+              <input type="submit" value="Sign Up" id="Signup-submit-btn" />
               <!-- <button type="submit"  id="Signup-submit-btn">Sign Up</button> -->
             </div>
           </form>
@@ -116,9 +117,7 @@
     <section class="Bookingsystem-main-Box"></section>
 
     <!--------------------------Confirmation for Login/signup / Booking / ------------------------>
-    <div class="confirmation-popup" >
-      
-    </div> 
+    <div class="confirmation-popup"></div>
 
     <!------------------------- navbar Section  ---------------------------------->
     <nav class="navbar" style="background-color: burlywood">
@@ -329,65 +328,18 @@
     </section>
 
     <!---------------------------------review section  --------------------------------------->
-    <section id="review">
-      <div class="Heading">
-        <h1>TESTIMONIALS</h1>
-      </div>
-      <h1 class="details">What people say about us?</h1>
-      <div
-        style="
-          display: flex;
-          width: 100%;
-          min-height: 20px;
-          align-items: center;
-          justify-content: center;
-        "
-      >
-        <img src="image/back.png" alt="" class="previou-btn" />
-        <div
-          style="
-            width: 60%;
-            margin: 20px;
-            /* min-height: 20px; */
-            display: flex;
-            border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-              rgba(0, 0, 0, 0.22) 0px 10px 10px;
-          "
-        >
-          <div class="left-review-section">
-            <img
-              src="image/bike3.jpg"
-              alt=""
-              style="border-radius: 15px; width: 100%; height: 100%"
-            />
-          </div>
-          <div class="right-review-section">
-            <h1>5.0 <span style="font-size: 30px">Stars</span></h1>
-            <div style="padding: 2px 10px">
-              <span class="lnr lnr-star"></span>
-              <span class="lnr lnr-star"></span>
-              <span class="lnr lnr-star"></span>
-              <span class="lnr lnr-star"></span>
-              <span class="lnr lnr-star"></span>
-            </div>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-              ipsa minima nemo iste exercitationem quibusdam soluta debitis
-              excepturi ullam deserunt quae necessitatibus placeat, quisquam
-              dolore expedita quod vel maxime minus?
-            </p>
-            <h2>Ms. Some people</h2>
-            <h3>From West Bengal, India</h3>
-          </div>
+    <section >
+      <section id="review"  >
+        <div class="Heading">
+          <h1>TESTIMONIALS</h1>
         </div>
-        <img src="image/forward.png" alt="" class="next-btn" />
-      </div>
+        <h1 class="details">What people say about us?</h1>
+      </section>
     </section>
 
     <!--------------------------------- footer section  ----------------------------------------------->
     <footer>
-      <div id="footer-details">
+      <div id="footer-details" data-aos="fade-down">
         <div style="display: flex">
           <div id="left-footer-details">
             <div class="first-section-navbar" style="margin-left: 60px">
@@ -414,7 +366,7 @@
             </div>
           </div>
           <div id="right-footer-details">
-            <div>
+            <!-- <div>
               <h1 class="right-footer-details-heading">Our Product</h1>
               <ul class="right-footer-details-ul">
                 <li class="right-footer-details-ul-li">Career</li>
@@ -433,7 +385,7 @@
                 <li class="right-footer-details-ul-li">Partner Network</li>
                 <li class="right-footer-details-ul-li">Developer</li>
               </ul>
-            </div>
+            </div> -->
             <div>
               <h1 class="right-footer-details-heading">About Rentcars</h1>
               <ul class="right-footer-details-ul">
@@ -445,6 +397,12 @@
             </div>
             <div>
               <h1 class="right-footer-details-heading">Follow Us</h1>
+              <ul class="right-footer-details-ul">
+                <li class="right-footer-details-ul-li"><a href="https://www.linkedin.com/in/atanu-biswas-ab15a5256/" style="color: #fff;">Linkedin</a></li>
+                <li class="right-footer-details-ul-li"><a href="https://www.instagram.com/" style="color: #fff;">Instagram</a></li>
+                <li class="right-footer-details-ul-li"><a href="https://x.com/_Atanu_Biswas" style="color: #fff;">X</a></li>
+                
+              </ul>
             </div>
           </div>
         </div>
@@ -454,5 +412,15 @@
         </div>
       </div>
     </footer>
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

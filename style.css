@@ -286,7 +286,7 @@ li {
   display: grid;
   grid-template-columns: repeat(4, 0.8fr);
   mix-blend-mode: darken;
-  margin: 4rem;
+  /* margin: 4rem; */
 }
 .car-card {
   display: grid;
@@ -389,12 +389,13 @@ li {
   font-size: 17px;
   padding-left: 10px;
 }
-.previou-btn,
-.next-btn {
-  width: 20px;
+.ri-arrow-left-s-line,
+.ri-arrow-right-s-line {
+  width: 30px;
   height: 20px;
   cursor: pointer;
-  margin: 13px;
+  font-size: 2rem;
+  /* margin: 13px; */
 }
 
 /* =================================footer Section=============================================================== */
@@ -808,3 +809,69 @@ svg {
     cursor: pointer;
   }
 }
+
+
+@media  (min-width: 713px) and (max-width: 1000px){
+
+  *{
+    scroll-behavior: smooth
+  }
+  .car-card-item{
+    display: grid;
+    grid-template-columns: repeat(2, 0.7fr);
+   }
+   
+}
+
+@media only screen and (max-width: 1000px){
+  .search-div{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+@media only screen and (max-width: 712px){
+  .car-card-item{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+   }
+
+   .rent-step{
+    display:block;
+   }
+   /* #footer-details{
+    padding:10px;
+   }
+   .rent-step-1,.rent-step-2{
+    font-size: 30px;
+   }
+   .rent-step-3{
+    margin: 1.5rem;
+    font-size: 20px;
+   } */
+}
+
+/* @media only screen and (max-width: 520px){
+  
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
